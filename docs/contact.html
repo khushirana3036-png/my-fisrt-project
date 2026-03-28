@@ -4,7 +4,91 @@
   <meta charset="UTF-8">
   <title>Contact Us - World Journey</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+    }
+
+    .contact-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    .contact-box {
+      background: white;
+      border-radius: 15px;
+      display: flex;
+      overflow: hidden;
+      max-width: 900px;
+      width: 100%;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    }
+
+    .contact-left {
+      background: #007bff;
+      color: white;
+      padding: 40px;
+      width: 40%;
+    }
+
+    .contact-left h2 {
+      margin-bottom: 20px;
+    }
+
+    .contact-left p {
+      margin: 10px 0;
+    }
+
+    .contact-right {
+      padding: 40px;
+      width: 60%;
+    }
+
+    .contact-right h2 {
+      margin-bottom: 20px;
+    }
+
+    .contact-right input,
+    .contact-right textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .contact-right button {
+      background: #007bff;
+      color: white;
+      padding: 12px;
+      border: none;
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .contact-right button:hover {
+      background: #0056b3;
+    }
+
+    @media (max-width: 768px) {
+      .contact-box {
+        flex-direction: column;
+      }
+
+      .contact-left,
+      .contact-right {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
 <header>
@@ -17,27 +101,36 @@
   </nav>
 </header>
 
-<section class="contact">
-  <h2>Contact Us</h2>
+<div class="contact-wrapper">
 
-  <div class="contact-container">
+  <div class="contact-box">
 
-    <div class="contact-info">
-      <h3>Get in Touch</h3>
-      <p>Email: worldjourney@gmail.com</p>
-      <p>Phone: +91 9876543210</p>
-      <p>Location: India</p>
+    <!-- LEFT SIDE INFO -->
+    <div class="contact-left">
+      <h2>Contact Info</h2>
+      <p>📧 worldjourney@gmail.com</p>
+      <p>📞 +91 9876543210</p>
+      <p>📍 India</p>
+
+      <br>
+      <p>We are here to help you plan your dream trip. Feel free to contact us anytime!</p>
     </div>
 
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" rows="5"></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+    <!-- RIGHT SIDE FORM -->
+    <div class="contact-right">
+      <h2>Send Message</h2>
+
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
 
   </div>
-</section>
+
+</div>
 
 </body>
 </html>
