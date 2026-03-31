@@ -54,12 +54,12 @@ document.getElementById("bookingForm").addEventListener("submit", (e) => {
     total: total,
     bookingTime: new Date().toLocaleString(),
   })
-    .then(() => {
-      alert("✅ Booking Confirmed! Saved to Database.");
-      document.getElementById("bookingForm").reset();
-      document.getElementById("total").value = "";
-      closePopup();
-    })
+  .then(() => {
+  alert("🎉 Your booking is confirmed!\nThank you for choosing World Journey.");
+  document.getElementById("bookingForm").reset();
+  document.getElementById("total").value = "";
+  closePopup();
+})
     .catch((error) => {
       console.error("❌ Error:", error);
       alert("❌ Booking failed. Try again.");
