@@ -181,22 +181,8 @@
     </div>
   </div>
 
-  <script type="module">
-    // ✅ Booking Popup
-    window.openPopup = function(city, price) {
-      document.getElementById("popup").style.display = "flex";
-      document.getElementById("city").value = city;
-      const ticketsInput = document.getElementById("tickets");
-      const totalInput = document.getElementById("total");
-
-      ticketsInput.addEventListener("input", () => {
-        totalInput.value = "₹" + ticketsInput.value * price;
-      });
-    };
-    window.closePopup = function() {
-      document.getElementById("popup").style.display = "none";
-    };
-
+  <script>
+   
     // ✅ City Details Data
     const cityDetails = {
       "Paris": {
@@ -287,6 +273,75 @@
       document.getElementById("detailsPopup").style.display = "none";
     };
   </script>
-  <script type="module" src="script.js"></script>
+  <!-- Firebase CDN -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyBQcex7SCBZVv8UBLfvw1MNX7T9Jxq6s",
+  authDomain: "world-jouney-db.firebaseapp.com",
+  databaseURL: "https://world-jouney-db-default-rtdb.firebaseio.com",
+  projectId: "world-jouney-db",
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+let selectedCity = "";
+let selectedPrice = 0;
+
+function openPopup(city, price) {
+  selectedCity = city;
+  selectedPrice = price;
+
+  document.getElementById("popup").style.display = "flex";
+  document.getElementById("city").value = city;
+
+  const tickets = document.getElementById("tickets");
+  const total = document.getElementById("total");
+
+  tickets.oninput = function () {
+    total.value = "₹" + (tickets.value * price);
+  };
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const tickets = document.getElementById("tickets").value;
+  const total = selectedPrice * tickets;
+
+  if(name === "" || email === "" || tickets === ""){
+    alert("⚠️ Fill all fields");
+    return;
+  }
+
+  const newRef = db.ref("bookings").push();
+
+  newRef.set({
+    name: name,
+    email: email,
+    city: selectedCity,
+    tickets: tickets,
+    total: total
+  })
+  .then(() => {
+    alert("🎉 Booking Confirmed!");
+    document.getElementById("bookingForm").reset();
+    closePopup();
+  })
+  .catch(() => {
+    alert("❌ Error occurred");
+  });
+
+});
+</script>
 </body>
 </html>                                                                                                                                    
