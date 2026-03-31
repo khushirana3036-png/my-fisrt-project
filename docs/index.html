@@ -1,291 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>World Journey – Plan Your Trip</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Quick popup style for city details */
-    .details-popup {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .details-content {
-      background: #fff;
-      width: 90%;
-      max-width: 700px;
-      padding: 20px;
-      border-radius: 12px;
-      text-align: left;
-      overflow-y: auto;
-      max-height: 85vh;
-    }
-    .details-content img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-    .details-content h3 { margin-top: 10px; color: #333; }
-    .details-content ul { margin-left: 20px; }
-    .details-close {
-      float: right;
-      font-size: 25px;
-      cursor: pointer;
-      color: #555;
-    }
-    .details-close:hover { color: red; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Journey</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header>
-    <h1>World Journey</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="#destinations">Plan Your Trip</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
 
-  <!-- 🏖️ Home Section -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h2>Explore the World With Us</h2>
-      <p>Your dream destinations are just a click away.</p>
-      <a href="#destinations" class="btn">Plan Your Trip</a>
-    </div>
-  </section>
+<header>
+  <h1>World Journey</h1>
+</header>
 
-  <!-- ✈️ Destinations Section -->
-  <section id="destinations" class="destinations">
-    <h2>Popular Destinations</h2>
-    <div class="card-container">
+<section class="destinations">
+  <h2>Popular Destinations</h2>
 
-      <!-- Example City Card -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34" alt="Paris" />
-        <h3>Paris</h3>
-        <p>₹5,000</p>
-        <button onclick="openPopup('Paris', 5000)">Book Ticket</button>
-        <button onclick="openDetails('Paris')">View Details</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad" alt="New York" />
-        <h3>New York</h3>
-        <p>₹7,500</p>
-        <button onclick="openPopup('New York', 7500)">Book Ticket</button>
-        <button onclick="openDetails('New York')">View Details</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090" alt="Dubai" />
-        <h3>Dubai</h3>
-        <p>₹6,200</p>
-        <button onclick="openPopup('Dubai', 6200)">Book Ticket</button>
-        <button onclick="openDetails('Dubai')">View Details</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126" alt="Tokyo" />
-        <h3>Tokyo</h3>
-        <p>₹8,500</p>
-        <button onclick="openPopup('Tokyo', 8500)">Book Ticket</button>
-        <button onclick="openDetails('Tokyo')">View Details</button>
-      </div>
-      <!-- London -->
-    <div class="card">
-    <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=800&q=60">
-    <h3>London</h3>
-    <p>₹6,800</p>
-    <button onclick="openPopup('London', 6800)">Book Ticket</button>
-    <button onclick="openDetails('London')">View Details</button>
-  </div>
-
-  <!-- Rome -->
   <div class="card">
- <img src="https://images.unsplash.com/photo-1526481280691-3c4699c5d6b4?auto=format&fit=crop&w=800&q=60">
-  <h3>Rome</h3>
-  <p>₹5,900</p>
-  <button onclick="openPopup('Rome', 5900)">Book Ticket</button>
-  <button onclick="openDetails('Rome')">View Details</button>
+    <h3>Paris</h3>
+    <p>₹5000</p>
+    <button onclick="openPopup('Paris',5000)">Book Ticket</button>
   </div>
 
-  <!-- Singapore -->
   <div class="card">
-  <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad">
-  <h3>Singapore</h3>
-  <p>₹6,500</p>
-  <button onclick="openPopup('Singapore', 6500)">Book Ticket</button>
-  <button onclick="openDetails('Singapore')">View Details</button>
+    <h3>Dubai</h3>
+    <p>₹6200</p>
+    <button onclick="openPopup('Dubai',6200)">Book Ticket</button>
   </div>
 
-  <!-- Maldives -->
-  <div class="card">
-  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-  <h3>Maldives</h3>
-  <p>₹9,000</p>
-  <button onclick="openPopup('Maldives', 9000)">Book Ticket</button>
-  <button onclick="openDetails('Maldives')">View Details</button>
-  </div>
+</section>
 
-  <!-- Switzerland -->
-    <div class="card">
-  <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
-  <h3>Switzerland</h3>
-  <p>₹10,000</p>
-  <button onclick="openPopup('Switzerland', 10000)">Book Ticket</button>
-  <button onclick="openDetails('Switzerland')">View Details</button>
-  </div>
+<!-- BOOKING POPUP -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span onclick="closePopup()" class="close">&times;</span>
 
-  <!-- Bangkok -->
-  <div class="card">
-  <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365">
-  <h3>Bangkok</h3>
-  <p>₹4,800</p>
-  <button onclick="openPopup('Bangkok', 4800)">Book Ticket</button>
-  <button onclick="openDetails('Bangkok')">View Details</button>
-  </div>
+    <h2>Book Ticket</h2>
+
+    <form id="bookingForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="city" readonly>
+      <input type="number" id="tickets" placeholder="Tickets" required>
+      <input type="text" id="total" readonly>
+
+      <button type="submit">Confirm Booking</button>
+    </form>
 
   </div>
-  </section>
+</div>
 
-  <!-- Popup for Booking -->
-  <div id="popup" class="popup">
-    <div class="popup-content">
-      <span class="close" onclick="closePopup()">&times;</span>
-      <h2>Book Your Ticket</h2>
-      <form id="bookingForm">
-        <input type="text" id="name" placeholder="Your Name" required />
-        <input type="email" id="email" placeholder="Email Address" required />
-        <input type="text" id="city" placeholder="City" readonly />
-        <input type="number" id="tickets" placeholder="Number of Tickets" min="1" required />
-        <input type="text" id="total" placeholder="Total Price" readonly />
-        <button type="submit">Confirm Booking</button>
-      </form>
-    </div>
+<!-- SUCCESS POPUP -->
+<div id="successPopup" class="popup">
+  <div class="popup-content" style="text-align:center">
+    <h2>🎉 Booking Confirmed!</h2>
+    <p>Your ticket has been successfully booked.</p>
+    <button onclick="closeSuccess()">OK</button>
   </div>
+</div>
 
-  <!-- City Details Popup -->
-  <div id="detailsPopup" class="details-popup">
-    <div class="details-content">
-      <span class="details-close" onclick="closeDetails()">&times;</span>
-      <div id="detailsContainer"></div>
-    </div>
-  </div>
+<script type="module" src="script.js"></script>
 
-  <script type="module">
-    // ✅ Booking Popup
-    window.openPopup = function(city, price) {
-      document.getElementById("popup").style.display = "flex";
-      document.getElementById("city").value = city;
-      const ticketsInput = document.getElementById("tickets");
-      const totalInput = document.getElementById("total");
-
-      ticketsInput.addEventListener("input", () => {
-        totalInput.value = "₹" + ticketsInput.value * price;
-      });
-    };
-    window.closePopup = function() {
-      document.getElementById("popup").style.display = "none";
-    };
-
-    // ✅ City Details Data
-    const cityDetails = {
-      "Paris": {
-        img: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade",
-        desc: "The city of love, lights, and art. Visit the iconic Eiffel Tower, Louvre Museum, and Seine River.",
-        places: ["Eiffel Tower", "Louvre Museum", "Notre-Dame Cathedral"],
-        package: { days: 5, price: "₹50,000", includes: "Hotel, Meals, City Tour" }
-      },
-      "New York": {
-        img: "https://images.unsplash.com/photo-1549924231-f129b911e442",
-        desc: "The city that never sleeps! Explore Times Square, Central Park, and the Statue of Liberty.",
-        places: ["Times Square", "Central Park", "Statue of Liberty"],
-        package: { days: 6, price: "₹65,000", includes: "Hotel, Breakfast, Sightseeing" }
-      },
-      "Dubai": {
-        img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c",
-        desc: "Luxury, adventure, and architecture meet in Dubai. Visit Burj Khalifa and Desert Safari.",
-        places: ["Burj Khalifa", "Palm Jumeirah", "Desert Safari"],
-        package: { days: 4, price: "₹55,000", includes: "Hotel, Transfers, Safari" }
-      },
-      "Tokyo": {
-        img: "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc",
-        desc: "A mix of tradition and technology. Explore Tokyo Tower, Shibuya, and ancient temples.",
-        places: ["Tokyo Tower", "Shibuya Crossing", "Asakusa Temple"],
-        package: { days: 5, price: "₹58,000", includes: "Hotel, Transport, Local Guide" }
-      },
-      "London": {
-      img: "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=800&q=60",
-      desc: "Famous for Big Ben and London Eye.",
-      places: ["Big Ben", "London Eye", "Tower Bridge"],
-      package: { days: 5, price: "₹60,000", includes: "Hotel, Guide, Transport" }
-    },
-
-  "Rome": {
-  img: "https://images.unsplash.com/photo-1526481280691-3c4699c5d6b4?auto=format&fit=crop&w=800&q=60",
-  desc: "Historic city with ancient architecture.",
-  places: ["Colosseum", "Vatican City", "Trevi Fountain"],
-  package: { days: 4, price: "₹55,000", includes: "Hotel, Meals" }
-},
-
-"Singapore": {
-  img: "https://images.unsplash.com/photo-1496939376851-89342e90adcd",
-  desc: "Modern city with amazing attractions.",
-  places: ["Marina Bay Sands", "Sentosa Island", "Gardens by the Bay"],
-  package: { days: 4, price: "₹58,000", includes: "Hotel, Tour" }
-},
-
-"Maldives": {
-  img: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
-  desc: "Beautiful beaches and luxury resorts.",
-  places: ["Water Villas", "Coral Reefs", "Resorts"],
-  package: { days: 3, price: "₹70,000", includes: "Resort Stay, Food" }
-},
-
-"Switzerland": {
-  img: "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
-  desc: "Snow mountains and scenic beauty.",
-  places: ["Alps", "Zurich", "Lucerne"],
-  package: { days: 6, price: "₹85,000", includes: "Hotel, Train Pass" }
-},
-
-"Bangkok": {
-  img: "https://images.unsplash.com/photo-1508009603885-50cf7c579365",
-  desc: "Vibrant city with temples and nightlife.",
-  places: ["Grand Palace", "Floating Market", "Wat Arun"],
-  package: { days: 4, price: "₹40,000", includes: "Hotel, Breakfast" }
-}
-    };
-
-    // ✅ Open City Details
-    window.openDetails = function(city) {
-      const data = cityDetails[city];
-      const detailsContainer = document.getElementById("detailsContainer");
-      detailsContainer.innerHTML = `
-        <h2>${city}</h2>
-        <img src="${data.img}" alt="${city}">
-        <p>${data.desc}</p>
-        <h3>Popular Places:</h3>
-        <ul>${data.places.map(p => `<li>${p}</li>`).join('')}</ul>
-        <h3>Package Details:</h3>
-        <p><strong>Duration:</strong> ${data.package.days} Days</p>
-        <p><strong>Price:</strong> ${data.package.price}</p>
-        <p><strong>Includes:</strong> ${data.package.includes}</p>
-      `;
-      document.getElementById("detailsPopup").style.display = "flex";
-    };
-    window.closeDetails = function() {
-      document.getElementById("detailsPopup").style.display = "none";
-    };
-  </script>
 </body>
 </html>
